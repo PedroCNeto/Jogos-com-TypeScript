@@ -40,10 +40,11 @@ function colocarPeca(i, square) {
             matriz = ['', '', '', '', '', '', '', '', ''];
             tituloVencedor.innerHTML = "O Circulo Ganhou!";
             board.classList.add('blur');
-            jogadas++;
+            jogadas = 0;
         }
         else if (checaGanhador() === false && jogadas === 9) {
             empate();
+            jogadas = 0;
         }
     }
     else if (player == 0 && !(matriz[i] === 'x' || matriz[i] === 'o')) {
@@ -56,9 +57,11 @@ function colocarPeca(i, square) {
             matriz = ['', '', '', '', '', '', '', '', ''];
             tituloVencedor.innerHTML = "O X Ganhou!";
             board.classList.add('blur');
+            jogadas = 0;
         }
         else if (checaGanhador() === false && jogadas === 9) {
             empate();
+            jogadas = 0;
         }
     }
 }
