@@ -52,10 +52,12 @@ function cmcJogo(){
         btnRestart.style.display = 'block';
         letrasUsadasTxt.style.display = 'block';
         enviarLetraInput.style.display = 'block';
+        letra.value = '';
     }
 }
 
 function restartGame(){
+    letra.value = '';
     plvAdv.innerHTML = ''
     letrasUsadasTxt.innerHTML = 'Letras usadas: ';
     palavra.value = '';
@@ -82,6 +84,7 @@ function checaVitoria(){
             return false;
         }
     }
+    enviarLetraInput.style.display = 'none';
     btnLetra.style.display = 'none';
     tituloVencedorForca.innerHTML = "Vitoria";
     centro.classList.add('blur');
@@ -95,6 +98,7 @@ function checaDerrota(){
         tituloVencedorForca.innerHTML = "Perdeu"
         centro.classList.add('blur');
         btnLetra.style.display = 'none';
+        enviarLetraInput.style.display = 'none';
     }
 }
 

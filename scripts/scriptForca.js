@@ -10,6 +10,7 @@ var btnLetra = document.getElementById('enviarLetra');
 var letrasUsadasTxt = document.getElementById('letrasUsadas');
 var mensagem = document.getElementById('result');
 var tituloVencedorForca = document.getElementById('tituloVencedor');
+var btnRestart = document.getElementById('resetBtn');
 var centro = document.getElementById('centro');
 var enviarLetraInput = document.getElementById('enviarLetraInput');
 var palavra = document.getElementById('palavraTxt');
@@ -39,14 +40,20 @@ function cmcJogo() {
         buscarPlv.style.display = 'none';
         btnComecar.style.display = 'none';
         btnLetra.style.display = 'block';
+        btnRestart.style.display = 'block';
+        letrasUsadasTxt.style.display = 'block';
         enviarLetraInput.style.display = 'block';
+        letra.value = '';
     }
 }
 function restartGame() {
+    letra.value = '';
     plvAdv.innerHTML = '';
     letrasUsadasTxt.innerHTML = 'Letras usadas: ';
     palavra.value = '';
     letrasUsadas = [];
+    letrasUsadasTxt.style.display = 'none';
+    btnRestart.style.display = 'none';
     buscarPlv.style.display = 'block';
     btnComecar.style.display = 'block';
     btnLetra.style.display = 'none';
@@ -66,6 +73,7 @@ function checaVitoria() {
             return false;
         }
     }
+    enviarLetraInput.style.display = 'none';
     btnLetra.style.display = 'none';
     tituloVencedorForca.innerHTML = "Vitoria";
     centro.classList.add('blur');
@@ -77,6 +85,7 @@ function checaDerrota() {
         tituloVencedorForca.innerHTML = "Perdeu";
         centro.classList.add('blur');
         btnLetra.style.display = 'none';
+        enviarLetraInput.style.display = 'none';
     }
 }
 function errarLetra() {
