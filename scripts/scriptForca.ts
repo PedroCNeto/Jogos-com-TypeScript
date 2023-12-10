@@ -10,6 +10,7 @@ const btnLetra = document.getElementById('enviarLetra') as HTMLButtonElement;
 const letrasUsadasTxt = document.getElementById('letrasUsadas') as HTMLTitleElement;
 const mensagem = document.getElementById('result') as HTMLDivElement;
 const tituloVencedorForca = document.getElementById('tituloVencedor') as HTMLTitleElement;
+const btnRestart = document.getElementById('resetBtn') as HTMLButtonElement;
 
 const centro = document.getElementById('centro') as HTMLDivElement
 
@@ -48,6 +49,8 @@ function cmcJogo(){
         buscarPlv.style.display = 'none';
         btnComecar.style.display = 'none';
         btnLetra.style.display = 'block';
+        btnRestart.style.display = 'block';
+        letrasUsadasTxt.style.display = 'block';
         enviarLetraInput.style.display = 'block';
     }
 }
@@ -57,6 +60,8 @@ function restartGame(){
     letrasUsadasTxt.innerHTML = 'Letras usadas: ';
     palavra.value = '';
     letrasUsadas = [];
+    letrasUsadasTxt.style.display = 'none';
+    btnRestart.style.display = 'none'
     buscarPlv.style.display = 'block';
     btnComecar.style.display = 'block';
     btnLetra.style.display = 'none';

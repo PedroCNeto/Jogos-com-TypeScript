@@ -140,3 +140,11 @@
     width: 15vw;
     display: flex;
 }
+
+#resetBtn {
+    display: none;
+}
+
+#letrasUsadas {
+    display: none;
+}
