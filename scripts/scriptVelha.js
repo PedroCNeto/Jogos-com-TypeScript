@@ -28,6 +28,7 @@ function limparTabuleiro() {
     matriz = ['', '', '', '', '', '', '', '', ''];
     board.classList.remove('blur');
     tituloVencedor.innerHTML = '';
+    jogadas = 0;
 }
 function colocarPeca(i, square) {
     if (player == 1 && !(matriz[i] === 'x' || matriz[i] === 'o')) {
@@ -40,11 +41,9 @@ function colocarPeca(i, square) {
             matriz = ['', '', '', '', '', '', '', '', ''];
             tituloVencedor.innerHTML = "O Circulo Ganhou!";
             board.classList.add('blur');
-            jogadas = 0;
         }
         else if (checaGanhador() === false && jogadas === 9) {
             empate();
-            jogadas = 0;
         }
     }
     else if (player == 0 && !(matriz[i] === 'x' || matriz[i] === 'o')) {
@@ -57,11 +56,9 @@ function colocarPeca(i, square) {
             matriz = ['', '', '', '', '', '', '', '', ''];
             tituloVencedor.innerHTML = "O X Ganhou!";
             board.classList.add('blur');
-            jogadas = 0;
         }
         else if (checaGanhador() === false && jogadas === 9) {
             empate();
-            jogadas = 0;
         }
     }
 }
