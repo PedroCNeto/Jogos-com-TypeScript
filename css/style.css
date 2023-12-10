@@ -22,12 +22,12 @@
 
 .item .titulo{
     text-align: center;
-    font-size: 3vw;
+    font-size: 2vw;
 }
 
 .item img{
-    width: 25vw;
-    height: 25vw;
+    width: 10vw;
+    height: 10vw;
     margin: 5vw;
 }
 
@@ -95,4 +95,48 @@
     padding: 10px;
     font-size: 1em;
     cursor: pointer;
+}
+
+#enviarLetraInput {
+    display: none;
+}
+
+.corpo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#enviarLetra {
+    display: none;
+}
+
+.corpo img {
+    width: 5vw;
+    display: none;
+}
+
+.menu {
+    position: fixed;
+    margin-top: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.torso {
+    display: flex;
+    justify-content: center;
+}
+
+.pernas {
+    display: flex;
+    justify-content: center;
+}
+
+.imgForca {
+    width: 15vw;
+    display: flex;
 }

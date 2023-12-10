@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Jogo da Velha</title>
+</head>
+<body>
+    <a href="index.html" class="btnVoltar">Voltar</a>
+    <div class="container">
+        <h1 id="titulo">Jogo da Forca</h1>
+        <div class="centro" id="centro">
+            <div class="corpo">
+                <img src="imgs/forca.png" alt="" class="imgForca">
+                <div class="cabeca">
+                    <img src="imgs/cbc.png" alt="" id="cabeca">
+                </div>
+                <div class="torso">
+                    <img src="imgs/mbmEsq.png" alt="" id="BEsq">
+                    <img src="imgs/torso.png" alt="" id="torso">
+                    <img src="imgs/mbmDir.png" alt="" id="BDir">
+                </div>
+                <div class="pernas">
+                    <img src="imgs/mbmEsq.png" alt="" id="PEsq">
+                    <img src="imgs/mbmDir.png" alt="" id="PDir">
+                </div>
+            </div>
+            <img src="imgs/forca.png" alt="" class="imgForca">
+        </div>
+        <h1 id="tituloVencedor"></h1>
+
+        <div class="menu">
+            <h1 id="palavra"></h1>
+            <div id="result" class="result"></div>
+            <p id="enviarPalavra">
+                <label for="palavraTxt">Escreva uma palavra</label>
+                <input type="password" id="palavraTxt">
+            </p>
+
+            <p id="enviarLetraInput">
+                <label for="palavraTxt">Escreva uma letra</label>
+                <input type="text" id="letraTxt">
+            </p>
+
+            <p>
+                <button id="enviarLetra" class="reset-btn" onclick="enviarLetra()">Enviar Letra</button>
+                <button id="enviarBtn" class="reset-btn" onclick="cmcJogo()">Começar Jogo</button>
+            </p>
+
+            <button id="resetBtn" class="reset-btn" onclick="restartGame()">Reiniciar Jogo</button>
+
+            <p>
+                <h2 id="letrasUsadas">Letras usadas: </h2>
+            </p>
+
+        </div>
+    </div>
+    <script src="scripts/scriptForca.js"></script>
+</body>
+</html>
