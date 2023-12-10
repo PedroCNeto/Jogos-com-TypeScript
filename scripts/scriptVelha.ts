@@ -5,9 +5,8 @@ const titulo = document.getElementById('titulo') as HTMLTitleElement;
 const quadrados : HTMLElement[] = [];
 
 var matriz : string[] = ['', '', '', '', '', '', '', '', ''];
-
+var jogadas : number = 0;
 var player : number = 1;
-
 function checaGanhador(){
     const winningCombos = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
@@ -16,15 +15,24 @@ function checaGanhador(){
     ];
 
     return winningCombos.some(combo => {
+
         const [a, b, c] : number[] = combo;
         return (matriz[a] !== '' && matriz[a] === matriz[b] && matriz[a] === matriz[c]);
     });
 }
 
+function empate(){
+    matriz = ['', '', '', '', '', '', '', '', ''];
+    tituloVencedor.innerHTML = "Empate"
+    board.classList.add('blur');
+}
+
+
 function limparTabuleiro(){
     quadrados.forEach(element => {
         element.style.backgroundImage = "";
     });
+    matriz = ['', '', '', '', '', '', '', '', ''];
     board.classList.remove('blur');
     tituloVencedor.innerHTML = '';
 }
@@ -36,10 +44,15 @@ function colocarPeca(i : number,square : HTMLDivElement){
         square.style.backgroundSize = "100% 100%"
         player = 0;
         matriz[i] = 'o';
-        if(checaGanhador() == true){
+        jogadas++;
+        if(checaGanhador() === true){
             matriz = ['', '', '', '', '', '', '', '', ''];
             tituloVencedor.innerHTML = "O Circulo Ganhou!"
             board.classList.add('blur');
+            jogadas++;
+        }
+        else if(checaGanhador() === false && jogadas === 9){
+            empate();
         }
     }
     else if(player == 0 && !(matriz[i] === 'x' || matriz[i] === 'o')){
@@ -47,10 +60,14 @@ function colocarPeca(i : number,square : HTMLDivElement){
         square.style.backgroundSize = "100% 100%"
         player = 1;
         matriz[i] = 'x';
-        if(checaGanhador() == true){
+        jogadas++;
+        if(checaGanhador() === true){
             matriz = ['', '', '', '', '', '', '', '', ''];
             tituloVencedor.innerHTML = "O X Ganhou!"
             board.classList.add('blur');
+        }
+        else if(checaGanhador() === false && jogadas === 9){
+            empate();
         }
     }
 

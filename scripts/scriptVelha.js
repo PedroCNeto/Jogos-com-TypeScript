@@ -3,6 +3,7 @@ var board = document.getElementById('board');
 var titulo = document.getElementById('titulo');
 var quadrados = [];
 var matriz = ['', '', '', '', '', '', '', '', ''];
+var jogadas = 0;
 var player = 1;
 function checaGanhador() {
     var winningCombos = [
@@ -15,10 +16,16 @@ function checaGanhador() {
         return (matriz[a] !== '' && matriz[a] === matriz[b] && matriz[a] === matriz[c]);
     });
 }
+function empate() {
+    matriz = ['', '', '', '', '', '', '', '', ''];
+    tituloVencedor.innerHTML = "Empate";
+    board.classList.add('blur');
+}
 function limparTabuleiro() {
     quadrados.forEach(function (element) {
         element.style.backgroundImage = "";
     });
+    matriz = ['', '', '', '', '', '', '', '', ''];
     board.classList.remove('blur');
     tituloVencedor.innerHTML = '';
 }
@@ -28,10 +35,15 @@ function colocarPeca(i, square) {
         square.style.backgroundSize = "100% 100%";
         player = 0;
         matriz[i] = 'o';
-        if (checaGanhador() == true) {
+        jogadas++;
+        if (checaGanhador() === true) {
             matriz = ['', '', '', '', '', '', '', '', ''];
             tituloVencedor.innerHTML = "O Circulo Ganhou!";
             board.classList.add('blur');
+            jogadas++;
+        }
+        else if (checaGanhador() === false && jogadas === 9) {
+            empate();
         }
     }
     else if (player == 0 && !(matriz[i] === 'x' || matriz[i] === 'o')) {
@@ -39,10 +51,14 @@ function colocarPeca(i, square) {
         square.style.backgroundSize = "100% 100%";
         player = 1;
         matriz[i] = 'x';
-        if (checaGanhador() == true) {
+        jogadas++;
+        if (checaGanhador() === true) {
             matriz = ['', '', '', '', '', '', '', '', ''];
             tituloVencedor.innerHTML = "O X Ganhou!";
             board.classList.add('blur');
+        }
+        else if (checaGanhador() === false && jogadas === 9) {
+            empate();
         }
     }
 }
